@@ -1,6 +1,5 @@
 # app.py
-import anvil.server
-anvil.server.connect("[insert key here]")
+
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import os
 
