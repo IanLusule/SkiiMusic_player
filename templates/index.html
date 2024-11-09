@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Music Player</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <!-- Title and welcome message -->
+    <h1 class="typing-effect" style="position: absolute; top: 10px; left: 10px;">
+      BySkii
+    </h1>
+    <h6 class="typing-effect" style="position: absolute; top: 40px; left: 10px;">
+      Hello welcome to my world!!
+    </h6>
+  </head>
+  <body>
+    <!-- Theme toggle button -->
+    <button
+      onclick="toggleTheme()"
+      id="theme-toggle-btn"
+      title="Toggle light/dark mode"
+    >
+      🌒
+      <!-- Moon icon for dark mode -->
+    </button>
+    <div class="notification" id="notification"></div>
+    <!-- Main container -->
+    <div class="container">
+      <!-- Sidebar for Playlist and Upload Button -->
+      <div class="sidebar">
+        <button
+          id="upload-button"
+          onclick="document.getElementById('file').click()"
+        >
+          Upload Songs
+        </button>
+        <input
+          type="file"
+          name="files[]"
+          id="file"
+          multiple
+          style="display: none"
+          onchange="uploadSongs()"
+        />
+        <h2></h2>
+        <ul id="playlist"></ul>
+      </div>
+
+      <!-- Music Player -->
+      <div class="player">
+        <h1>Music Player</h1>
+        <!-- Album Art Display -->
+        <img
+          id="album-art"
+          src=""
+          alt="Album Art"
+          style="
+            display: none;
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+          "
+        />
+        <audio id="audio-player" controls></audio>
+        <div class="controls">
+          <button onclick="previousSong()">&#9664;</button>
+          <!-- Previous: ◀ -->
+          <button onclick="togglePlayPause()">🎵</button>
+          <!-- Play: 🎵 -->
+          <button onclick="nextSong()">&#9654;</button>
+          <!-- Next: ▶ -->
+          <button onclick="toggleShuffle()">&#8635;</button>
+          <!-- Shuffle: 🔀 -->
+          <button onclick="toggleRepeat()" id="repeat-button">🔁</button>
+          <!-- Default repeat -->
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/player.js"></script>
+  </body>
+</html>
+
+<!-- Git commands for initializing and pushing to a repository -->
+<!--
+cd {folder_path}
+git init
+git add .
+git commit -m "{initial_commit_message}"
+git remote add origin https://github.com/IanLusule/{repository_name}.git
+git push -u origin master 
+-->

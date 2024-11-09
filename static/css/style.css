@@ -1,0 +1,221 @@
+/* static/css/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212; /* Default dark mode background */
+    color: #fff; /* Default dark mode text color */
+}
+
+.container {
+    display: flex;
+    width: 70%;
+}
+
+#upload-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(68, 148, 148);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #444;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Ensure it takes full width of the sidebar */
+    overflow: hidden; /* Hide overflow */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    font-size: 14px; /* Decrease font size if needed */
+}
+
+.sidebar ul li:hover .delete-btn {
+    display: inline;
+}
+
+.delete-btn {
+    color: red;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+    font-weight: bold; /* Make the text bold */
+    margin-right: 10px; /* Adjust this value to move it right */
+    order: -1; /* Move the icon to the left hand side */
+}
+
+.player {
+    flex-grow: 1;
+    text-align: center;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.notification {
+    position: fixed;
+    top: 20px; /* Distance from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset by half of its own width */
+    background-color: rgb(68, 148, 148); /* Blue background for the notification */
+    color: white;
+    padding: 10px 20px; /* Add padding for aesthetics */
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it is on top of other elements */
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0; /* Start hidden */
+    display: none; /* Hidden by default */
+}
+
+.player,
+.sidebar {
+    background: linear-gradient(
+        to right,
+        rgba(0, 128, 255, 0.1),
+        rgba(255, 255, 255, 0.1)
+    );
+    animation: wave 1.5s infinite;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: black; /* Change title color to black */
+}
+
+/* Default dark mode styles */
+body {
+    background-color: #121212;
+    color: #fff;
+}
+
+
+
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #f4f4f4;
+    color: rgb(68, 148, 148);
+}
+
+/* Light mode for other elements (example: sidebar, player, etc.) */
+body.light-mode .sidebar {
+    background-color: #f4f4f4;
+    color: rgb(68, 148, 148);
+}
+
+body.light-mode .player {
+    background-color: #fff;
+}
+
+body.light-mode .song-name {
+    color: rgb(25, 179, 179);
+}
+
+
+body.light-mode button {
+    background-color: rgb(68, 148, 148);
+    color: white;
+}
+
+#theme-toggle-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff; /* Default dark mode button color */
+}
+
+body.light-mode #theme-toggle-btn {
+    color: #333;
+}
+
+/* Adjust the marquee effect */
+.marquee {
+    display: inline-block;
+    overflow: hidden; /* Ensure overflow is hidden */
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 15s linear infinite; /* Adjust duration as needed */
+    padding-right: 100%; /* Ensure space for scrolling */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%); /* Start off-screen */
+    }
+    100% {
+        transform: translateX(-100%); /* End off-screen to the left */
+    }
+}
+
+/* Header typing effect */
+
+@keyframes typing {
+    0% { width: 0; }
+    50% { width: 20%; } /* Adjust width to be flexible */
+    100% { width: 0; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: transparent; }
+}
+
+.typing-effect::after {
+    content: '✍️';
+    animation: blink-caret 5s step-end infinite;
+}
+
+.typing-effect {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: typing 10s steps(40, end) infinite; /* Adjust duration and steps as needed */
+}
